@@ -326,7 +326,7 @@ component {
 				Output &= Response.ResponseHeader[ "Set-Cookie" ] & NL;
 			}else {
 				for(var Cookie in Response.ResponseHeader[ 'Set-Cookie' ]) {
-					Output &= Cookie & NL;
+					Output &= Response.ResponseHeader[ 'Set-Cookie' ][ Cookie] & NL;
 				}
 			}
 		}
