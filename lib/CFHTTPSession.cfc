@@ -442,6 +442,14 @@ component {
 			internally. 
 		*/
 		for(var Cookie in Instance.Cookies) {
+			/*
+				The J2EE session cookie needs to not be encoded
+				since the dot gets changed and the server thinks
+				it's a new session.
+			*/
+			if(Cookie == "JSESSIONID") {
+				httpSvc.addParam(type="cookie", name=Cookie, value=Instance.Cookies[ Cookie ].Value, encoded=false);
+			}
 			httpSvc.addParam(type="cookie", name=Cookie, value=Instance.Cookies[ Cookie ].Value);
 		}
 
