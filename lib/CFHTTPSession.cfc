@@ -455,12 +455,7 @@ component {
 			
 		// Loop over params.
 		for(var Param in Instance.RequestData.Params) {
-			var paramList = "";
-			for(var ParamKey in Param) {
-				paramList = listAppend(paramList,ParamKey & "=""" & Param[ParamKey] & """");
-			}
-			
-			httpSvc.setAttributes(paramList);
+			httpSvc.addParam(argumentCollection=Param);
 		}
 
 
